@@ -56,7 +56,7 @@ public class PageFunction {
 		String newTime = formatter.format(d);
 		newTime = newTime.replaceAll("\\s+","");
 		newTime =  newTime.toLowerCase();
-		System.out.println("New time is in " + range + "hours will be from now" + newTime);
+		System.out.println("New time is in " + range + " hours will be from now" + newTime);
 		
 		
 		
