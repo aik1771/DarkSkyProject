@@ -82,7 +82,7 @@ public class PageFunction {
 	//	System.out.println("Element 2 " +temp2 + "lenght is " +temp2.length());
 		
 
-		//blah blah blah
+		//blah blah blah blah
 		List<WebElement> myElements = DriverWrapper.getDriver().findElements(By.xpath("//span[@class='temp']"));
        // System.out.println("Size of List: "+myElements.size());
         for(WebElement e : myElements) 
