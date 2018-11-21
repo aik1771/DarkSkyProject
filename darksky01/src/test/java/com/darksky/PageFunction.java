@@ -67,6 +67,39 @@ public class PageFunction {
 
 		
 	}
+	public static void getTemperatureRange()
+	{
+		
+		int numberFound=1;
+		String element = DriverWrapper.getDriver().findElement(By.xpath("//*[@id='week']/a[1]/span[2]")).getText();
+		System.out.println("What's my Range " +element);
+		String[] parts = element.split("°");
+		String part1 = parts[0]; // 004
+		String part2 = parts[1]; // 034556
+		System.out.println("Element 1 " +part1 + "lenght is " +part1.length());
+		System.out.println("Element 2 " +part2 + "lenght is " +part2.length());
+		
+
+		
+		List<WebElement> myElements = DriverWrapper.getDriver().findElements(By.xpath("//span[@class='temp']"));
+        System.out.println("Size of List: "+myElements.size());
+        for(WebElement e : myElements) 
+        {        
+            if (numberFound==3)
+            {
+            	
+            	break;
+            }
+            else
+            {
+        	System.out.print("Found  " + numberFound + " temperature at "+e.getText()+"\t");
+        	numberFound+=1;
+        	String tempLength=e.getText();
+        	System.out.println("String lenghth " +tempLength.length() );
+            }
+            
+        }
+	}
 	public static void getData() throws ParseException
 	{
 		int count =0;

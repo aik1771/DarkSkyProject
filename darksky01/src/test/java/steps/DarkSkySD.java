@@ -15,6 +15,19 @@ public class DarkSkySD extends DriverWrapper{
 	 
 		initializeWebDriver();
 	}
+	
+	@When("^I expand todays timeline$")
+	public void iExpandTodaysTimeline() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		landing.clickOnPlus();
+	}
+
+	@Then("^I verify lowest and highest temp is displayed correctly$")
+	public void iVerifyLowestAndHighestTempIsDisplayedCorrectly() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		landing.findRange();
+	}
+	
 
 	@When("^I Clear search text field$")
 	public void iClearSearchTextField() throws Throwable {
