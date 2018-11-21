@@ -72,17 +72,19 @@ public class PageFunction {
 		
 		int numberFound=1;
 		String element = DriverWrapper.getDriver().findElement(By.xpath("//*[@id='week']/a[1]/span[2]")).getText();
-		System.out.println("What's my Range " +element);
-		String[] parts = element.split("°");
-		String part1 = parts[0]; // 004
-		String part2 = parts[1]; // 034556
-		System.out.println("Element 1 " +part1 + "lenght is " +part1.length());
-		System.out.println("Element 2 " +part2 + "lenght is " +part2.length());
+	//	System.out.println("What's my Range " +element);
+		String[] parts = element.split("˚");
+		String temp1 = parts[0]; // 004
+		String temp2 = parts[1]; // 034556
+		
+		temp2=temp2.replaceAll("\\s","");
+		//System.out.println("Element 1 " +temp1 + "lenght is " +temp1.length());
+	//	System.out.println("Element 2 " +temp2 + "lenght is " +temp2.length());
 		
 
 		
 		List<WebElement> myElements = DriverWrapper.getDriver().findElements(By.xpath("//span[@class='temp']"));
-        System.out.println("Size of List: "+myElements.size());
+       // System.out.println("Size of List: "+myElements.size());
         for(WebElement e : myElements) 
         {        
             if (numberFound==3)
@@ -92,10 +94,22 @@ public class PageFunction {
             }
             else
             {
-        	System.out.print("Found  " + numberFound + " temperature at "+e.getText()+"\t");
+            String  tempFound = e.getText();
+            tempFound=tempFound.replace("˚","");
+            tempFound=tempFound.replaceAll("\\s","");
+        	System.out.print("Found  " + numberFound + " temperature at "+tempFound+"\t");
         	numberFound+=1;
         	String tempLength=e.getText();
-        	System.out.println("String lenghth " +tempLength.length() );
+        //	System.out.println("String lenghth " +tempLength.length() );
+        	
+        	if (tempFound.contains(temp1))
+        	{
+        		System.out.println("Lowest temperature of " + temp1 + " match found!");
+        	}
+        	if (tempFound.contains(temp2))
+        	{
+        		System.out.println("Hightest temperature of " + temp2 + " match found!");
+        	}
             }
             
         }
