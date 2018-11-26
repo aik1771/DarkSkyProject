@@ -1,4 +1,4 @@
-Feature: DarkSky Search Feature
+ Feature: DarkSky Search Feature
 
   Background:
     Given I am on darksky page

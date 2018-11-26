@@ -45,11 +45,11 @@ public class PageFunction {
 	public static String getHours(int range) throws ParseException
 	{
 		
-		SimpleDateFormat dateFormat = new SimpleDateFormat("hh aa");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("h aa");
 		String formattedDate = dateFormat.format(new Date()).toString();
 		System.out.println("Current time is " +formattedDate);
 		
-		SimpleDateFormat formatter = new SimpleDateFormat("hh aa");
+		SimpleDateFormat formatter = new SimpleDateFormat("h aa");
 		Calendar cal = Calendar.getInstance();
 		cal.add(Calendar.HOUR_OF_DAY, range);
 		Date d  = cal.getTime();
@@ -67,6 +67,17 @@ public class PageFunction {
 
 		
 	}
+	
+	public static void getAllHours()
+	{
+		List<WebElement> myElements = DriverWrapper.getDriver().findElements(By.xpath("//div[@class='dayDetails revealed']//div[@class='hours']//span[1]"));
+	       // System.out.println("Size of List: "+myElements.size());
+	        for(WebElement e : myElements) 
+	        { 
+	        	System.out.println("Get # " + e.getText());
+	               
+	        }
+	}
 	public static void getTemperatureRange()
 	{
 		
@@ -82,7 +93,7 @@ public class PageFunction {
 	//	System.out.println("Element 2 " +temp2 + "lenght is " +temp2.length());
 		
 
-		
+		//blah blah blah blah
 		List<WebElement> myElements = DriverWrapper.getDriver().findElements(By.xpath("//span[@class='temp']"));
        // System.out.println("Size of List: "+myElements.size());
         for(WebElement e : myElements) 
@@ -120,7 +131,7 @@ public class PageFunction {
 		int range = 0;
 		int match =0;
 	
-	
+		
 	
 	
 	for (int i=3;i<25;i+=2)
