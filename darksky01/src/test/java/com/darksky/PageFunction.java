@@ -1,6 +1,5 @@
 package com.darksky;
 
-import static org.junit.Assert.fail;
 
 import java.text.DateFormat;
 import java.text.ParseException;
